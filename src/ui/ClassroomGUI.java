@@ -1,7 +1,6 @@
 package ui;
 
 import model.Classroom;
-import model.Person;
 import model.UserAccount;
 
 import java.io.IOException;
@@ -127,33 +126,39 @@ public class ClassroomGUI {
     
     @FXML
     public void createAccount(ActionEvent event) {
-    	if(!txtUserName.getText().equals("") && !passwordField.getText().equals("") && !txtProfilePhoto.getText().equals("")) {
-	    	if(rbFemale.isSelected() || rbMale.isSelected() || rbOther.isSelected()) {
-	    		if(software.isSelected() || telematic.isSelected() || industrial.isSelected()) {
-	    			if(!birthday.getValue().equals(null)) {
-	    				if(browser.getSelectionModel().getSelectedItem().equals("")) {
-	    					
-	    				}
-	    				
-	    			}
-	    		}
-	    	}
+    	
+    	String gend="";
+		if(rbFemale.isSelected()) {
+			gend="Female";
+		}
+		else if(rbMale.isSelected()) {
+			gend="Male";
+		}
+		else if(rbOther.isSelected()) {
+			gend="Other";
+		}
+		
+		String career="";
+		if(software.isSelected()) {
+			career+="Software engineering";
+		}
+		if(telematic.isSelected()) {
+			career+="Telematic engineering";
+		}
+		if(industrial.isSelected()) {
+			career+="Industrial engineering";
+		}
+    	
+    	if(!txtUserName.getText().equals("") && !passwordField.getText().equals("") && !txtProfilePhoto.getText().equals("") &&
+    			!birthday.getValue().equals(null) && browser.getSelectionModel().getSelectedItem().equals("")
+    			&& !gend.equals("") && !career.equals("") ){
+	    	
+    		
+    		
+    		UserAccount userAcc= new UserAccount(txtUserName.getText(), passwordField.getText(),txtProfilePhoto.getText(),gend, career,birthday.getValue(), browser.getSelectionModel().getSelectedItem());
     	}
     	
-    	/*
-    	 if(!txtUserName.getText().equals("") && !passwordField.getText().equals("") && !txtProfilePhoto.getText().equals("")) {
-	    	if(rbFemale.isSelected() || rbMale.isSelected() || rbOther.isSelected()) {
-	    		if(software.isSelected() || telematic.isSelected() || industrial.isSelected()) {
-	    			if(!birthday.getValue().equals(null)) {
-	    				if(browser.getSelectionModel().getSelectedItem().equals("")) {
-	    					
-	    				}
-	    				
-	    			}
-	    		}
-	    	}
-    	}
-    	 */
+    	
     	txtUserName.clear();
     	passwordField.clear();
 
