@@ -7,30 +7,29 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label text="Sing in to Clasroom" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="UserName: " />
-            <TextField />
+            <TextField fx:id="txtUserName" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label text="Password: " />
-            <TextField />
+            <TextField fx:id="txtPassword" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" text="Sign Up">
+            <Button mnemonicParsing="false" onAction="#loadRegister" text="Sign Up">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Log In">
+            <Button mnemonicParsing="false" onAction="#logIn" text="Log In">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

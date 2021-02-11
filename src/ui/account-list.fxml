@@ -13,13 +13,13 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableAccList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn prefWidth="129.0" text="UserName" />
-          <TableColumn prefWidth="99.0" text="Gender" />
-            <TableColumn prefWidth="92.0" text="Career" />
-            <TableColumn prefWidth="102.0" text="Birthday" />
-            <TableColumn prefWidth="112.0" text="Browser" />
+          <TableColumn fx:id="colUserName" prefWidth="129.0" text="UserName" />
+          <TableColumn fx:id="colGender" prefWidth="99.0" text="Gender" />
+            <TableColumn fx:id="colCareer" prefWidth="92.0" text="Career" />
+            <TableColumn fx:id="colBirthday" prefWidth="102.0" text="Birthday" />
+            <TableColumn fx:id="colBrowser" prefWidth="112.0" text="Browser" />
         </columns>
       </TableView>
    </center>
@@ -28,12 +28,12 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="600.0">
                <children>
-                  <Label text="Label">
+                  <Label fx:id="labUserName" text="labUserName">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Log out">
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#loadLogin" text="Log out">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>
