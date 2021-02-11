@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -15,7 +16,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -51,15 +51,10 @@
                </GridPane.margin>
             </TextField>
             <Label text="Password: " GridPane.rowIndex="1" />
-            <TextField fx:id="txtPassword" prefHeight="25.0" prefWidth="140.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets right="30.0" />
-               </GridPane.margin>
-            </TextField>
             <Label text="Profile photo: " GridPane.rowIndex="2" />
             <HBox alignment="BOTTOM_LEFT" prefHeight="56.0" prefWidth="600.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <TextField fx:id="txtProfilePhoto">
+                  <TextField fx:id="txtProfilePhoto" editable="false">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin>
@@ -91,6 +86,11 @@
             <DatePicker fx:id="birthday" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="Favorite Browser: " GridPane.rowIndex="7" />
             <ComboBox fx:id="browser" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="30.0" />
+               </GridPane.margin>
+            </PasswordField>
          </children>
       </GridPane>
       <HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0">

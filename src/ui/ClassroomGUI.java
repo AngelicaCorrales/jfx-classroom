@@ -1,10 +1,13 @@
 package ui;
 
 import model.Classroom;
+import model.Person;
 import model.UserAccount;
 
 import java.io.IOException;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -28,8 +32,8 @@ public class ClassroomGUI {
 	@FXML
 	private TextField txtUserName;
 
-    @FXML
-    private TextField txtPassword;
+	@FXML
+    private PasswordField passwordField;
 
     @FXML
     private TextField txtProfilePhoto;
@@ -89,9 +93,15 @@ public class ClassroomGUI {
 
 	public ClassroomGUI(Classroom cr) {
 		this.classroom=cr;
+		
 	}
 	
-	
+	public void initializeComboBox() {
+		ObservableList<String> options = 
+			    FXCollections.observableArrayList("Google Chrome","Mozilla Firefox","Opera", "Safari");
+		browser.setValue("Browser");
+		browser.setItems(options);
+	}
 	
 	@FXML
     public void logIn(ActionEvent event) throws IOException {
@@ -111,10 +121,41 @@ public class ClassroomGUI {
     	Parent register= fxmlLoader.load();
 		mainPane.getChildren().clear();
 		mainPane.setCenter(register);
+		
+		initializeComboBox();
     }
     
     @FXML
     public void createAccount(ActionEvent event) {
+    	if(!txtUserName.getText().equals("") && !passwordField.getText().equals("") && !txtProfilePhoto.getText().equals("")) {
+	    	if(rbFemale.isSelected() || rbMale.isSelected() || rbOther.isSelected()) {
+	    		if(software.isSelected() || telematic.isSelected() || industrial.isSelected()) {
+	    			if(!birthday.getValue().equals(null)) {
+	    				if(browser.getSelectionModel().getSelectedItem().equals("")) {
+	    					
+	    				}
+	    				
+	    			}
+	    		}
+	    	}
+    	}
+    	
+    	/*
+    	 if(!txtUserName.getText().equals("") && !passwordField.getText().equals("") && !txtProfilePhoto.getText().equals("")) {
+	    	if(rbFemale.isSelected() || rbMale.isSelected() || rbOther.isSelected()) {
+	    		if(software.isSelected() || telematic.isSelected() || industrial.isSelected()) {
+	    			if(!birthday.getValue().equals(null)) {
+	    				if(browser.getSelectionModel().getSelectedItem().equals("")) {
+	    					
+	    				}
+	    				
+	    			}
+	    		}
+	    	}
+    	}
+    	 */
+    	txtUserName.clear();
+    	passwordField.clear();
 
     }
 
