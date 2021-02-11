@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDate;
+
 public class UserAccount {
 
 	private String userName;
@@ -7,10 +9,10 @@ public class UserAccount {
 	private String profilePhoto;
 	private String gender;
 	private String career;
-	private String birthday;
+	private LocalDate birthday;
 	private String browser;
 	
-	public UserAccount(String userName, String password, String profilePhoto, String gender, String career, String birthday,String browser) {
+	public UserAccount(String userName, String password, String profilePhoto, String gender, String career, LocalDate birthday,String browser) {
 		 this.userName=userName;
 		 this.password=password;
 		 this.profilePhoto=profilePhoto;
@@ -50,10 +52,10 @@ public class UserAccount {
 	public void setCareer(String career) {
 		this.career = career;
 	}
-	public String getBirthday() {
+	public LocalDate getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(String birthday) {
+	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
 	public String getBrowser() {

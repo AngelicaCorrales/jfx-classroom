@@ -4,6 +4,7 @@ import model.Classroom;
 import model.UserAccount;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -148,6 +149,7 @@ public class ClassroomGUI {
 		if(industrial.isSelected()) {
 			career+="Industrial engineering";
 		}
+		
     	
     	if(!txtUserName.getText().equals("") && !passwordField.getText().equals("") && !txtProfilePhoto.getText().equals("") &&
     			!birthday.getValue().equals(null) && browser.getSelectionModel().getSelectedItem().equals("")
@@ -156,11 +158,20 @@ public class ClassroomGUI {
     		
     		
     		UserAccount userAcc= new UserAccount(txtUserName.getText(), passwordField.getText(),txtProfilePhoto.getText(),gend, career,birthday.getValue(), browser.getSelectionModel().getSelectedItem());
+    		classroom.getAccounts().add(userAcc);
     	}
     	
     	
     	txtUserName.clear();
     	passwordField.clear();
+    	txtProfilePhoto.clear();
+    	birthday.setValue(null);
+    	browser.setValue(null);
+    	gender.getSelectedToggle().setSelected(false);
+    	software.setSelected(false);
+    	telematic.setSelected(false);
+    	industrial.setSelected(false);
+
 
     }
 
