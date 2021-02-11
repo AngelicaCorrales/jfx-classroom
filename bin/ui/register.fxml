@@ -86,7 +86,7 @@
             <DatePicker fx:id="birthday" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="Favorite Browser: " GridPane.rowIndex="7" />
             <ComboBox fx:id="browser" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
