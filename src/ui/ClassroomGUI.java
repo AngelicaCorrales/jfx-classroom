@@ -3,8 +3,8 @@ package ui;
 import model.Classroom;
 import model.UserAccount;
 
+import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,13 +12,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
@@ -141,24 +144,39 @@ public class ClassroomGUI {
 		
 		String career="";
 		if(software.isSelected()) {
-			career+="Software engineering";
+			career+=" Software engineering";
 		}
 		if(telematic.isSelected()) {
-			career+="Telematic engineering";
+			career+=" Telematic engineering";
 		}
 		if(industrial.isSelected()) {
-			career+="Industrial engineering";
+			career+=" Industrial engineering";
 		}
 		
     	
     	if(!txtUserName.getText().equals("") && !passwordField.getText().equals("") && !txtProfilePhoto.getText().equals("") &&
-    			!birthday.getValue().equals(null) && browser.getSelectionModel().getSelectedItem().equals("")
+    			!birthday.getValue().equals(null) && !browser.getSelectionModel().getSelectedItem().equals("")
     			&& !gend.equals("") && !career.equals("") ){
 	    	
     		
     		
     		UserAccount userAcc= new UserAccount(txtUserName.getText(), passwordField.getText(),txtProfilePhoto.getText(),gend, career,birthday.getValue(), browser.getSelectionModel().getSelectedItem());
     		classroom.getAccounts().add(userAcc);
+    		
+    		Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setTitle("Account created");
+    		alert.setHeaderText(null);
+    		alert.setContentText("The new account has been created! :D");
+
+    		alert.showAndWait();
+    	}
+    	else {
+    		Alert alert = new Alert(AlertType.ERROR);
+    		alert.setTitle("Validation error");
+    		alert.setHeaderText(null);
+    		alert.setContentText("You must fill each field in the form ");
+
+    		alert.showAndWait();
     	}
     	
     	
@@ -187,7 +205,15 @@ public class ClassroomGUI {
     
     @FXML
     public void selectBrowse(ActionEvent event) {
-
+    	FileChooser.ExtensionFilter imageFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png");
+    	FileChooser fileChooser= new FileChooser();
+    	fileChooser.getExtensionFilters().add(imageFilter);
+    	fileChooser.setTitle("Select profile photo");
+    	File file= fileChooser.showOpenDialog(null);
+    	
+    	if(file != null) {
+    		txtProfilePhoto.setText(file.getAbsolutePath());
+    	}
     }
     
     
