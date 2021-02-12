@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -134,7 +135,7 @@ public class ClassroomGUI {
 			imageView.setFitHeight(50);
 			imageView.setFitWidth(50);
 			labUserName.setGraphic(imageView);
-		
+			labUserName.setContentDisplay(ContentDisplay.RIGHT);
 			initializeTable();
 		}
 		else {
