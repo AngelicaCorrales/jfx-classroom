@@ -144,7 +144,19 @@ public class ClassroomGUI {
 	
 	
 
-    private void initializeTable() {
+    @FXML
+	public void loadRegister(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register.fxml"));
+	
+		fxmlLoader.setController(this);
+		Parent register= fxmlLoader.load();
+		mainPane.getChildren().clear();
+		mainPane.setCenter(register);
+		
+		initializeComboBox();
+	}
+
+	private void initializeTable() {
     	ObservableList<UserAccount> list= FXCollections.observableArrayList(classroom.getAccounts());
     	
     	tableAccList.setItems(list);
@@ -154,21 +166,10 @@ public class ClassroomGUI {
     	colBirthday.setCellValueFactory(new PropertyValueFactory<UserAccount,String>("birthday"));
     	colBrowser.setCellValueFactory(new PropertyValueFactory<UserAccount,String>("browser"));
 	
+    	
 	}
 
 	@FXML
-    public void loadRegister(ActionEvent event) throws IOException {
-    	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register.fxml"));
-
-		fxmlLoader.setController(this);
-    	Parent register= fxmlLoader.load();
-		mainPane.getChildren().clear();
-		mainPane.setCenter(register);
-		
-		initializeComboBox();
-    }
-    
-    @FXML
     public void createAccount(ActionEvent event) {
     	
     	String gend="";
@@ -225,11 +226,13 @@ public class ClassroomGUI {
     	txtProfilePhoto.clear();
     	birthday.setValue(null);
     	browser.setValue(null);
-    	gender.getSelectedToggle().setSelected(false);
+    	
     	software.setSelected(false);
     	telematic.setSelected(false);
     	industrial.setSelected(false);
-
+    	if(!gend.equals("")) {
+    		gender.getSelectedToggle().setSelected(false);
+    	}
 
     }
 
