@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <TableView fx:id="tableAccList" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -33,7 +32,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#loadLogin" text="Log out">
+                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#loadLogIn" text="Log out">
                      <HBox.margin>
                         <Insets right="20.0" />
                      </HBox.margin>

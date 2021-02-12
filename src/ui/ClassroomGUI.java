@@ -102,7 +102,7 @@ public class ClassroomGUI {
 	public void initializeComboBox() {
 		ObservableList<String> options = 
 			    FXCollections.observableArrayList("Google Chrome","Mozilla Firefox","Opera", "Safari");
-		browser.setValue("Browser");
+		browser.setValue("Choose an option");
 		browser.setItems(options);
 	}
 	
@@ -115,6 +115,8 @@ public class ClassroomGUI {
 		mainPane.getChildren().clear();
 		mainPane.setCenter(accList);
     }
+	
+	
 
     @FXML
     public void loadRegister(ActionEvent event) throws IOException {
