@@ -117,12 +117,14 @@ public class ClassroomGUI {
     		alert.showAndWait();
 		}
 		else if(classroom.findAccount(txtUserName.getText(), passwordField.getText())){
+			
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account-list.fxml"));
 
 			fxmlLoader.setController(this);
 	    	Parent accList= fxmlLoader.load();
 			mainPane.getChildren().clear();
 			mainPane.setCenter(accList);
+			labUserName.setText(txtUserName.getText());
 		}
 		else {
 			Alert alert = new Alert(AlertType.ERROR);
