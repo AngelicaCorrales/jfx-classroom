@@ -20,6 +20,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.scene.control.Label;
@@ -125,6 +126,7 @@ public class ClassroomGUI {
 			mainPane.getChildren().clear();
 			mainPane.setCenter(accList);
 			labUserName.setText(txtUserName.getText());
+			initializeTable();
 		}
 		else {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -142,7 +144,19 @@ public class ClassroomGUI {
 	
 	
 
-    @FXML
+    private void initializeTable() {
+    	ObservableList<UserAccount> list= FXCollections.observableArrayList(classroom.getAccounts());
+    	
+    	tableAccList.setItems(list);
+    	colUserName.setCellValueFactory(new PropertyValueFactory<UserAccount,String>("userName"));
+    	colGender.setCellValueFactory(new PropertyValueFactory<UserAccount,String>("gender"));
+    	colCareer.setCellValueFactory(new PropertyValueFactory<UserAccount,String>("career"));
+    	colBirthday.setCellValueFactory(new PropertyValueFactory<UserAccount,String>("birthday"));
+    	colBrowser.setCellValueFactory(new PropertyValueFactory<UserAccount,String>("browser"));
+	
+	}
+
+	@FXML
     public void loadRegister(ActionEvent event) throws IOException {
     	FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register.fxml"));
 
