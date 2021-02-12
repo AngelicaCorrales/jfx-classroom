@@ -23,13 +23,11 @@ public class Classroom {
 		for(int i=0; i<accounts.size() && !found;i++ ) {
 			if(accounts.get(i).getUserName().equals(un) && accounts.get(i).getPassword().equals(pw)) {
 				
-				found=true;				
-				
+				found=true;						
 			}
 		}
 		
-		
-		
+				
 		return found;
 	}
 

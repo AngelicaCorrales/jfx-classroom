@@ -108,12 +108,34 @@ public class ClassroomGUI {
 	
 	@FXML
     public void logIn(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account-list.fxml"));
+		if(txtUserName.getText().equals("") && passwordField.getText().equals("")) {
+			Alert alert = new Alert(AlertType.ERROR);
+    		alert.setTitle("Validation error");
+    		alert.setHeaderText(null);
+    		alert.setContentText("You must fill each field in the form ");
 
-		fxmlLoader.setController(this);
-    	Parent accList= fxmlLoader.load();
-		mainPane.getChildren().clear();
-		mainPane.setCenter(accList);
+    		alert.showAndWait();
+		}
+		else if(classroom.findAccount(txtUserName.getText(), passwordField.getText())){
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("account-list.fxml"));
+
+			fxmlLoader.setController(this);
+	    	Parent accList= fxmlLoader.load();
+			mainPane.getChildren().clear();
+			mainPane.setCenter(accList);
+		}
+		else {
+			Alert alert = new Alert(AlertType.ERROR);
+    		alert.setTitle("Log in incorrect");
+    		alert.setHeaderText(null);
+    		alert.setContentText("The username and password given are incorrect ");
+
+    		alert.showAndWait();
+		}
+		
+		txtUserName.clear();
+    	passwordField.clear();
+		
     }
 	
 	
