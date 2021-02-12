@@ -21,6 +21,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.scene.control.Label;
@@ -126,6 +128,13 @@ public class ClassroomGUI {
 			mainPane.getChildren().clear();
 			mainPane.setCenter(accList);
 			labUserName.setText(txtUserName.getText());
+			File file= new File(classroom.profilePhotoResource(txtUserName.getText(), passwordField.getText()));
+			Image image = new Image(file.toURI().toString());
+			ImageView imageView=new ImageView(image);
+			imageView.setFitHeight(50);
+			imageView.setFitWidth(50);
+			labUserName.setGraphic(imageView);
+		
 			initializeTable();
 		}
 		else {
