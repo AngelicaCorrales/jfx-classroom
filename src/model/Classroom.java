@@ -1,5 +1,6 @@
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Classroom {
@@ -18,6 +19,13 @@ public class Classroom {
 		this.accounts = accounts;
 	}
 	
+	public void createAccount(String un, String pw, String pp, String gender, String career, LocalDate bday,
+			String browser) {
+		UserAccount userAcc= new UserAccount(un, pw, pp, gender, career, bday, browser);
+		accounts.add(userAcc);
+		
+	}
+		
 	public UserAccount searchAccount(String un, String pw) {
 		boolean found=false;
 		UserAccount ua=null;
@@ -45,5 +53,7 @@ public class Classroom {
 		
 		return ua.getProfilePhoto();
 	}
+
+	
 
 }

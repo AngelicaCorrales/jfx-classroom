@@ -206,13 +206,12 @@ public class ClassroomGUI {
 		
     	
     	if(!txtUserName.getText().equals("") && !passwordField.getText().equals("") && !txtProfilePhoto.getText().equals("") &&
-    			!birthday.getValue().equals(null) && !browser.getSelectionModel().getSelectedItem().equals("")
+    			birthday.getValue()!=null && !browser.getSelectionModel().getSelectedItem().equals("")
     			&& !gend.equals("") && !career.equals("") ){
 	    	
     		
     		
-    		UserAccount userAcc= new UserAccount(txtUserName.getText(), passwordField.getText(),txtProfilePhoto.getText(),gend, career,birthday.getValue(), browser.getSelectionModel().getSelectedItem());
-    		classroom.getAccounts().add(userAcc);
+    		classroom.createAccount(txtUserName.getText(), passwordField.getText(),txtProfilePhoto.getText(),gend, career,birthday.getValue(), browser.getSelectionModel().getSelectedItem());
     		
     		Alert alert = new Alert(AlertType.INFORMATION);
     		alert.setTitle("Account created");
