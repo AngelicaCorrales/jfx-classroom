@@ -15,18 +15,33 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="409.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="409.0" style="-fx-background-color: #9DFBC4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="Join to Classroom" />
+      <Label text="Join to Classroom">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Label>
       <Label text="Create your account">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
          <VBox.margin>
             <Insets bottom="20.0" />
          </VBox.margin>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#c40c0c" offset="0.9808429118773946" />
+                  <Stop color="WHITE" offset="0.9961685823754789" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
       <GridPane prefHeight="227.0" prefWidth="279.0">
         <columnConstraints>
@@ -44,14 +59,23 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="UserName: " />
+            <Label text="UserName: ">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <TextField fx:id="txtUserName" prefHeight="25.0" prefWidth="0.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </TextField>
-            <Label text="Password: " GridPane.rowIndex="1" />
-            <Label text="Profile photo: " GridPane.rowIndex="2" />
+            <Label text="Password: " GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label text="Profile photo: " GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <HBox alignment="BOTTOM_LEFT" prefHeight="56.0" prefWidth="600.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
                   <TextField fx:id="txtProfilePhoto" editable="false">
@@ -62,7 +86,10 @@
                   <Button mnemonicParsing="false" onAction="#selectBrowse" text="Browse" />
                </children>
             </HBox>
-            <Label text="Gender: " GridPane.rowIndex="3" />
+            <Label text="Gender: " GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="600.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
                   <RadioButton fx:id="rbFemale" mnemonicParsing="false" text="Female">
@@ -74,7 +101,10 @@
                   <RadioButton fx:id="rbOther" mnemonicParsing="false" text="Other" toggleGroup="$gender" />
                </children>
             </HBox>
-            <Label text="Career: " GridPane.rowIndex="4" />
+            <Label text="Career: " GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <VBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="183.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
                   <CheckBox fx:id="software" mnemonicParsing="false" text="Software Engineering" />
@@ -82,9 +112,15 @@
                   <CheckBox fx:id="industrial" mnemonicParsing="false" text="Industrial Engineering" />
                </children>
             </VBox>
-            <Label text="Birthday: " GridPane.rowIndex="6" />
+            <Label text="Birthday: " GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <DatePicker fx:id="birthday" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="Favorite Browser: " GridPane.rowIndex="7" />
+            <Label text="Favorite Browser: " GridPane.rowIndex="7">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <ComboBox fx:id="browser" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <PasswordField fx:id="passwordField" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
@@ -95,15 +131,21 @@
       </GridPane>
       <HBox alignment="CENTER" prefHeight="55.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#loadLogIn" text="Sign in">
+            <Button mnemonicParsing="false" onAction="#loadLogIn" style="-fx-background-color: #139D4E;" text="Sign in" textFill="WHITE">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#createAccount" text="Create account">
+            <Button mnemonicParsing="false" onAction="#createAccount" style="-fx-background-color: #139D4E;" text="Create account" textFill="WHITE">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
             </Button>
          </children>
       </HBox>

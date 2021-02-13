@@ -195,13 +195,13 @@ public class ClassroomGUI {
 		
 		String career="";
 		if(software.isSelected()) {
-			career+=" Software engineering";
+			career+="Software engineering\n";
 		}
 		if(telematic.isSelected()) {
-			career+=" Telematic engineering";
+			career+="Telematic engineering\n";
 		}
 		if(industrial.isSelected()) {
-			career+=" Industrial engineering";
+			career+="Industrial engineering\n";
 		}
 		
     	
