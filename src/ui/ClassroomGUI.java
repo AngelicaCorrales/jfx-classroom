@@ -136,7 +136,7 @@ public class ClassroomGUI {
 			imageView.setFitWidth(50);
 			labUserName.setGraphic(imageView);
 			labUserName.setContentDisplay(ContentDisplay.RIGHT);
-			initializeTable();
+			initializeTableView();
 		}
 		else {
 			Alert alert = new Alert(AlertType.ERROR);
@@ -166,7 +166,7 @@ public class ClassroomGUI {
 		initializeComboBox();
 	}
 
-	private void initializeTable() {
+	private void initializeTableView() {
     	ObservableList<UserAccount> list= FXCollections.observableArrayList(classroom.getAccounts());
     	
     	tableAccList.setItems(list);
@@ -206,7 +206,7 @@ public class ClassroomGUI {
 		
     	
     	if(!txtUserName.getText().equals("") && !passwordField.getText().equals("") && !txtProfilePhoto.getText().equals("") &&
-    			birthday.getValue()!=null && !browser.getSelectionModel().getSelectedItem().equals("")
+    			birthday.getValue()!=null && !browser.getSelectionModel().getSelectedItem().equals("Choose an option")
     			&& !gend.equals("") && !career.equals("") ){
 	    	
     		
@@ -234,7 +234,7 @@ public class ClassroomGUI {
     	passwordField.clear();
     	txtProfilePhoto.clear();
     	birthday.setValue(null);
-    	browser.setValue(null);
+    	browser.setValue("Choose an option");
     	
     	software.setSelected(false);
     	telematic.setSelected(false);
