@@ -21,7 +21,7 @@
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
                   <Stop color="BLACK" />
-                  <Stop color="#c30a0a" offset="1.0" />
+                  <Stop color="#c20909" offset="1.0" />
                </stops>
             </LinearGradient>
          </textFill></Label>
