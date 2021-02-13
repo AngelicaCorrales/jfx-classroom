@@ -219,6 +219,19 @@ public class ClassroomGUI {
     		alert.setContentText("The new account has been created! :D");
 
     		alert.showAndWait();
+    		
+    		txtUserName.clear();
+        	passwordField.clear();
+        	txtProfilePhoto.clear();
+        	birthday.setValue(null);
+        	browser.setValue("Choose an option");
+        	
+        	software.setSelected(false);
+        	telematic.setSelected(false);
+        	industrial.setSelected(false);
+        	if(!gend.equals("")) {
+        		gender.getSelectedToggle().setSelected(false);
+        	}
     	}
     	else {
     		Alert alert = new Alert(AlertType.ERROR);
@@ -230,18 +243,7 @@ public class ClassroomGUI {
     	}
     	
     	
-    	txtUserName.clear();
-    	passwordField.clear();
-    	txtProfilePhoto.clear();
-    	birthday.setValue(null);
-    	browser.setValue("Choose an option");
     	
-    	software.setSelected(false);
-    	telematic.setSelected(false);
-    	industrial.setSelected(false);
-    	if(!gend.equals("")) {
-    		gender.getSelectedToggle().setSelected(false);
-    	}
 
     }
 
